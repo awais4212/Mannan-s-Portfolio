@@ -196,7 +196,7 @@ export default function Hero() {
 
             {/* CV Button */}
             <a
-              href="/cv.pdf"
+              href="/mannan.pdf"
               download
               className="
                 inline-flex
