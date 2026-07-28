@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Lock, Mail, Eye, EyeOff, LogIn } from 'lucide-react';
-// Import your Supabase client instance (adjust path if needed)
-import { supabase } from '../lib/supabase';
+import { createClient } from '@/utils/supabase/client';
+
+const supabase = createClient();
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');

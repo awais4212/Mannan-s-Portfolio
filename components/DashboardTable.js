@@ -8,11 +8,17 @@ import {
   deleteContact,
   markAsRead,
 } from "@/lib/queries";
+import { logout } from "@/lib/auth";
 
 export default function DashboardTable() {
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedMessage, setSelectedMessage] = useState(null);
+
+  const handleLogout = async () => {
+    await logout();
+    window.location.href = "/login";
+  };
 
   const fetchContacts = async () => {
     setLoading(true);
@@ -118,12 +124,13 @@ export default function DashboardTable() {
             <span>Admin</span>
           </div>
 
-          <Link
-            href="/login"
+          <button
+            type="button"
+            onClick={handleLogout}
             className="px-3 py-1.5 text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 rounded-xl transition"
           >
             Logout
-          </Link>
+          </button>
         </div>
       </nav>
 
